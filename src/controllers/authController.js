@@ -1,6 +1,9 @@
 const bcrypt = require('bcrypt');
 const validator = require("email-validator");
-const { User, Poll } = require("../models");
+const {
+  User,
+  Poll
+} = require("../models");
 
 
 const userAuthController = {
@@ -147,12 +150,15 @@ const userAuthController = {
   },
 
   async logoutAndRedirect(req, res) {
-    // On veut retirer le userId de la session
-    req.session.userId = null;
-    req.session.userRole = null;
-    res.redirect("/");
+    try {
+      // On veut retirer le userId de la session
+      req.session.userId = null;
+      req.session.userRole = null;
+      res.redirect("/");
+    } catch (error) {
+      res.status(500).send('Une erreur est survenue');
+    }
   }
-
 }
 
 
