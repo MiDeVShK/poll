@@ -1,4 +1,5 @@
 // Toujours commencer par importer les variables d'environnement !
+const path = require('path');
 const dotenv = require("dotenv");
 dotenv.config();
 
