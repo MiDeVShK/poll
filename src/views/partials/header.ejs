@@ -15,6 +15,9 @@
         
             <a href="/"><img class="header-images-logo" src="/images/logo.png" alt=""></a>
             <!-- <img class="header-images-burger" src="/images/burger.png" alt=""> -->
+            <% if (locals.errorMessage) { %>                
+                <p style="color:red; font-size:30px;"> <%= errorMessage %></p>
+            <% } %>
             
         <div class="navbar-responsive">
             <ul class="header-navbar">
