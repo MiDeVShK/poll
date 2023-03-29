@@ -144,7 +144,6 @@ horizontalScroll.addEventListener("wheel", function (event) {
   secondHorizontalScroll.scrollLeft -= event.deltaY;
 });
 
-<<<<<<< HEAD
 const beforeButton = document.querySelector('.before');
 const afterButton  = document.querySelector('.after');
 
@@ -159,19 +158,3 @@ afterButton.addEventListener('click', () => {
 })
 
 // 
-=======
-const beforeButton = document.querySelector(".before");
-const afterButton = document.querySelector(".after");
->>>>>>> refs/remotes/origin/main
-
-beforeButton.addEventListener("click", () => {
-  horizontalScroll.scrollBy(100, 0);
-  secondHorizontalScroll.scrollBy(-100, 0);
-});
-
-afterButton.addEventListener("click", () => {
-  horizontalScroll.scrollBy(-100, 0);
-  secondHorizontalScroll.scrollBy(100, 0);
-});
-
-//
