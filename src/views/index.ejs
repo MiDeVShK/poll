@@ -1,73 +1,95 @@
 <%- include('./partials/header') %>
-<h2 class="category-title">Most Popular</h2>
-<main>
-      
-    
-<% for(const poll of polls) { %>
-    <article class="poll-container">
-            <form method="POST" action="/">
-                <% let pourcentA = Math.round((poll.result_a /(poll.result_a + poll.result_b)) * 100) %>
-                <% let pourcentB = Math.round((poll.result_b /(poll.result_a + poll.result_b)) * 100) %>
-            <div class="poll-header">                
-                <h2 class="poll-header-title"><%= poll.category.name %></h2>                
-                <p class="poll-header-author"><%= poll.author.pseudo %></p>
-            </div>
-            <p class="poll-question"><%= poll.question %></p>
-            
-                <div class="poll-wrapper">
-                    <input class="poll-wrapper-checkbox" type="checkbox" id="first" name="choice" value="result_a">
-                    <div class="poll-progressbar-wrapper">
-                        <div class="poll-progressbar" style="width: <%=pourcentA%>%" title="first_choice">
-                            <p class="poll-progressbar"><%= poll.choice_a %></p>
-                        </div>
-                    </div>
-                    <span class="poll-progressbar-pourcent">
-                        <% if (isNaN(pourcentA)) { %>
-                            <% pourcentA = 0 %>
-                        <%}%>
-                        <%=pourcentA%>%
-                    </span>
-                </div>
-                <div class="poll-wrapper">
-                    <input class="poll-wrapper-checkbox" type="checkbox" id="second" name="choice" value="result_b">          
-                    <div class="poll-progressbar-wrapper">
-                        <div class="poll-progressbar" style="width: <%= pourcentB %>%" title="second_choice" >
-                            <p><%= poll.choice_b %></p>
-                        </div>
-                    </div>
-                    <span class="poll-progressbar-pourcent">
-                        <% if (isNaN(pourcentB)) { %>
-                            <% pourcentB = 0 %>
-                        <%}%>
-                        <%=pourcentB%>%
-                    </span>
-                </div>               
-            <div class="poll-footer">
-                <div class="poll-footer-share">
-                    <img class="share-button" src="/images/share.svg" alt="">
-                    <span class="coming-soon"></span>
-                    <input type="hidden" id="id" name="id" value="<%=poll.id%>">
-                </div>                              
-                <p class="poll-footer-vote"><%=poll.result_a + poll.result_b %> votes</p>
-                <% const votes = locals.votes %>                                
-                <% if(!votes.includes(poll.id)) {%>
-                <button class="article-button" type="submit">Validate</button>
-                <% } %>  
-            </div>
-            <h2 style="color:red;"><% if(locals.errorMessage && locals.pollId === poll.id ) { %>
-                <p><%= errorMessage %></p>
-                <% } %></h2>
-        </form>
-        </article>
-<% } %> 
-    <!-- POP UP FOR THE SIGN UP FORM -->
-    <%- include('partials/signup.ejs') %>
+    <h2 class="category-title">Most Popular</h2>
+    <main>
 
-    <!-- POP UP FOR THE CONNECT FORM -->
-    <%- include('partials/connect.ejs') %>
 
-    <!-- POP UP FOR THE CREATE FORM -->
-    <%- include('partials/create.ejs') %>
-</main>
+        <% for(const poll of polls) { %>
+            <article class="poll-container">
+                <form method="POST" action="/">
+                    <% let pourcentA=Math.round((poll.result_a /(poll.result_a + poll.result_b)) * 100) %>
+                        <% let pourcentB=Math.round((poll.result_b /(poll.result_a + poll.result_b)) * 100) %>
+                            <div class="poll-header">
+                                <h2 class="poll-header-title">
+                                    <%= poll.category.name %>
+                                </h2>
+                                <p class="poll-header-author">
+                                    <%= poll.author.pseudo %>
+                                </p>
+                            </div>
+                            <p class="poll-question">
+                                <%= poll.question %>
+                            </p>
 
-<%- include('./partials/footer') %>   
+                            <div class="poll-wrapper">
+                                <input class="poll-wrapper-checkbox" type="checkbox" name="choice" value="result_a">
+                                <div class="poll-progressbar-wrapper">
+                                    <div class="poll-progressbar" style="width: <%=pourcentA%>%" title="first_choice">
+                                        <p class="poll-progressbar">
+                                            <%= poll.choice_a %>
+                                        </p>
+                                    </div>
+                                </div>
+                                <span class="poll-progressbar-pourcent">
+                                    <% if (isNaN(pourcentA)) { %>
+                                        <% pourcentA=0 %>
+                                            <%}%>
+                                                <%=pourcentA%>%
+                                </span>
+                            </div>
+                            <div class="poll-wrapper">
+                                <input class="poll-wrapper-checkbox" type="checkbox" name="choice" value="result_b">
+                                <div class="poll-progressbar-wrapper">
+                                    <div class="poll-progressbar" style="width: <%= pourcentB %>%"
+                                        title="second_choice">
+                                        <p>
+                                            <%= poll.choice_b %>
+                                        </p>
+                                    </div>
+                                </div>
+                                <span class="poll-progressbar-pourcent">
+                                    <% if (isNaN(pourcentB)) { %>
+                                        <% pourcentB=0 %>
+                                            <%}%>
+                                                <%=pourcentB%>%
+                                </span>
+                            </div>
+                            <div class="poll-footer">
+                                <div class="poll-footer-share">
+                                    <img class="share-button" src="/images/share.svg" alt="">
+                                    <span class="coming-soon"></span>
+                                    <input type="hidden" name="id" value="<%=poll.id%>">
+                                </div>
+                                <p class="poll-footer-vote">
+                                    <%=poll.result_a + poll.result_b %> votes
+                                </p>
+                                <% const votes=locals.votes %>
+                                    <% if(!votes.includes(poll.id)) {%>
+                                        <button class="article-button" type="submit">Validate</button>
+                                        <% } %>
+                            </div>
+                            <h2 style="color:red;">
+                                <% if(locals.errorMessage && locals.pollId===poll.id ) { %>
+                                    <p>
+                                        <%= errorMessage %>
+                                    </p>
+                                    <% } %>
+                            </h2>
+                </form>
+            </article>
+
+
+            <% } %>
+                <script>
+                    console.log('Petit coquin de starship, je savais que tu passerais par là !');
+                </script>
+                <!-- POP UP FOR THE SIGN UP FORM -->
+                <%- include('partials/signup.ejs') %>
+
+                    <!-- POP UP FOR THE CONNECT FORM -->
+                    <%- include('partials/connect.ejs') %>
+
+                        <!-- POP UP FOR THE CREATE FORM -->
+                        <%- include('partials/create.ejs') %>
+    </main>
+
+    <%- include('./partials/footer') %>
