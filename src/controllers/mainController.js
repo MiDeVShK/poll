@@ -13,7 +13,11 @@ const mainController = {
         order: [
           ["resultTotal", "DESC"]
         ],
+<<<<<<< HEAD
 	limit: 8,
+=======
+        limit: 8,
+>>>>>>> refs/remotes/origin/main
         include: [{
             association: "author",
             attributes: ["pseudo"]

@@ -28,10 +28,9 @@ app.set('views', 'src/views');
 
 
 app.use(authentifyRequestMiddleware);
+
 //Crée un guest
 app.use(loadToLocals);
-
-
 
 // servir les fichiers statiques qui sont dans "public"
 app.use(express.static('public'));
