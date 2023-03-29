@@ -1,3 +1,5 @@
+const dotenv = require("dotenv");
+
 const session = require("express-session");
 const pgSession = require('connect-pg-simple')(session);
 const {

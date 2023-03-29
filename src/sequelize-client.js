@@ -1,3 +1,5 @@
+const dotenv = require("dotenv");
+
 const { Sequelize } = require('sequelize');
 
 // Ceci est une instance de connexion à la BDD Postgres (c'est notre "client")
