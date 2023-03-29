@@ -1,0 +1,98 @@
+<%- include('./partials/header') %>
+
+<form class="category-select" action="" method="POST">
+    <select name="tag_id" class="poll-category-select">
+        <%for (const category of categories) { %>
+            <option name ="tag_id" value="<%= category.id %>"><%= category.name %></option>
+             <% } %>
+    </select>
+    <button>Go</button>
+</form>
+
+<div class="category-container">
+    <section class="category-page ">
+    
+        <div class="before">
+            <section class="poll-category-list style-scroll horizontal-scroll">
+                <%for (const category of categories) { %> 
+                    <a href="/polls/<%= category.id %>"><%= category.name %></a>
+                     <% } %>                
+            </section>
+        </div>
+    
+        <div class="after">
+            <section class="poll-category-list style-scroll second-horizontal-scroll">
+                <%for (const category of categories) { %> 
+                    <a href="/polls/<%= category.id %> "><%= category.name %></a>
+                     <% } %>
+            </section>
+        </div>
+</div>
+<section class="partials-flex">
+    <% for(const poll of categoryPolls.poll) { %>       
+        <article class="poll-container">
+                <form method="POST" action="/">
+                    <% let pourcentA = Math.round((poll.result_a /(poll.result_a + poll.result_b)) * 100) %>
+                    <% let pourcentB = Math.round((poll.result_b /(poll.result_a + poll.result_b)) * 100) %>
+                <div class="poll-header">                
+                    <h2 class="poll-header-title"><%= categoryPolls.name %></h2>
+                    <p class="poll-header-author"><%= poll.author.pseudo %></p>
+                </div>
+                <p class="poll-question"><%= poll.question %></p>
+                
+                    <div class="poll-wrapper">
+                        <input class="poll-wrapper-checkbox" type="checkbox" id="first" name="choice" value="result_a">
+                        <div class="poll-progressbar-wrapper">
+                            <div class="poll-progressbar" style="width: <%=pourcentA%>%" title="first_choice">
+                                <p class="poll-progressbar"><%= poll.choice_a %></p>
+                            </div>
+                        </div>
+                        <span class="poll-progressbar-pourcent">
+                            <% if (isNaN(pourcentA)) { %>
+                                <% pourcentA = 0 %>
+                            <%}%>
+                            <%=pourcentA%>%
+                        </span>
+                    </div>
+                    <div class="poll-wrapper">
+                        <input class="poll-wrapper-checkbox" type="checkbox" id="second" name="choice" value="result_b">          
+                        <div class="poll-progressbar-wrapper">
+                            <div class="poll-progressbar" style="width: <%= pourcentB %>%" title="second_choice" >
+                                <p><%= poll.choice_b %></p>
+                            </div>
+                        </div>
+                        <span class="poll-progressbar-pourcent">
+                            <% if (isNaN(pourcentA)) { %>
+                                <% pourcentA = 0 %>
+                            <%}%>
+                            <%=pourcentA%>%
+                        </span>
+                    </div>               
+                <div class="poll-footer">
+                    <div class="poll-footer-share">
+                        <img class="share-button" src="/images/share.svg" alt="">
+                        <span class="coming-soon"></span>
+                        <input type="hidden" id="id" name="id" value="<%=poll.id%>">
+                    </div>                              
+                    <p class="poll-footer-vote"><%=poll.result_a + poll.result_b %> votes</p>
+                    <% const votes = locals.votes %>                                
+                    <% if(!votes.includes(poll.id)) {%>
+                    <button class="article-button" type="submit">Validate</button>
+                    <% } %>  
+                </div>
+            </form>
+            </article>
+    <% } %> 
+    
+    <!-- POP UP FOR THE SIGN UP FORM -->
+    <%- include('partials/signup.ejs') %>
+
+    <!-- POP UP FOR THE CONNECT FORM -->
+    <%- include('partials/connect.ejs') %>
+
+    <!-- POP UP FOR THE CREATE FORM -->
+    <%- include('partials/create.ejs') %>
+</section>
+   
+
+<%- include('./partials/footer') %>   
