@@ -1,3 +1,6 @@
+const dotenv = require("dotenv");
+dotenv.config();
+
 const { User, Poll, Category } = require('../src/models');
 
 async function populateTables(){
