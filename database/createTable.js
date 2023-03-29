@@ -1,5 +1,10 @@
 const dotenv = require("dotenv");
-dotenv.config();
+const path = require("path");
+
+dotenv.config({
+path:path.resolve(__dirname,"../.env")
+});
+console.log(process.env.DB_PASSWORD);
 
 const { User, Poll, Category } = require('../src/models');
 
