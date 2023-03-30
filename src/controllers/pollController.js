@@ -22,7 +22,13 @@ const pollController = {
         });
         return;
       }
-
+      if (choice_a.length || choice_b.length > 10) {
+        res.render("index", {
+          errorMessage: "Please enter a choice with max 10 characters"
+        });
+        return;
+      }
+      
       await Poll.create({
           tag_id: tag_id,
           question: question,
