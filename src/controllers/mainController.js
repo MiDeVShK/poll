@@ -13,7 +13,7 @@ const mainController = {
         order: [
           ["resultTotal", "DESC"]
         ],
-        limit: 8,
+        //limit: 8,
         include: [{
             association: "author",
             attributes: ["pseudo"]
