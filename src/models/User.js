@@ -7,15 +7,15 @@ User.init({
   pseudo: {
     type: DataTypes.STRING
   },
-  firstname: {
+  /* firstname: {
     type: DataTypes.STRING
-  },
-  lastname: {
+  }, */
+  /* lastname: {
     type: DataTypes.STRING
-  },
-  email: {
+  }, */
+  /* email: {
     type: DataTypes.STRING
-  },
+  }, */
   password: {
     type: DataTypes.STRING,
     allowNull: false

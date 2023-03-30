@@ -1,26 +1,19 @@
 const dotenv = require("dotenv");
 const path = require("path");
 
-<<<<<<< HEAD
 dotenv.config({
 path:path.resolve(__dirname,"../.env")
 });
-=======
-
-dotenv.config({
-  path:path.resolve(__dirname,"../.env")
-});
-
->>>>>>> refs/remotes/origin/main
 
 const { User, Poll, Category } = require('../src/models');
 
 async function populateTables(){
   await User.bulkCreate([
-    {pseudo:"MikeRs", firstname: "Michael", lastname:"Dutheil", email:"mike@oclock.io", password: "12345678", role:"admin"},
-    {pseudo:"Anais49", firstname: "Anais", lastname:"Oclock", email:"anais@oclock.io", password: "12345678", role:"member"},
-    {pseudo:"Pacron", firstname: "Emmanuel", lastname:"Pacron", email:"emmanuel@oclock.io", password: "12345678", role:"member"}
+    {pseudo:"MikeRs",  role:"admin"},
+    {pseudo:"Anais49", role:"member"},
+    {pseudo:"Pacron",  role:"member"}
   ]);
+  
   await Category.bulkCreate([
     {name:"All"},
     {name:"Love"},
