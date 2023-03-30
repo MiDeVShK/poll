@@ -17,8 +17,13 @@
             <!-- <img class="header-images-burger" src="/images/burger.png" alt=""> -->
             <% if (locals.errorMessage) { %>                
                 <p style="color:red; font-size:30px;"> <%= errorMessage %></p>
+           
+            <% } else if (locals.succesMessage) { %>                
+                <p style="color: green; font-size:30px;"> <%= succesMessage %></p>
             <% } %>
+           <!-- faut laisser else if sinon ca va bug ok ty bebou, je test --> 
             
+
         <div class="navbar-responsive">
             <ul class="header-navbar">
                 <li class="navbar-button home-button"><a href="/">Home</a></li>

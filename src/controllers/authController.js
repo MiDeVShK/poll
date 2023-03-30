@@ -4,7 +4,7 @@ const {
   User,
   Poll
 } = require("../models");
-
+ 
 
 const userAuthController = {
   async handleSignUpForm(req, res) {
@@ -13,16 +13,16 @@ const userAuthController = {
       //on réupere les donnés du signup du form
       const {
         pseudo,
-        firstname,
-        lastname,
-        email,
+        //firstname,
+        //lastname,
+        //email,
         password,
         confirmation
       } = req.body;
 
 
       //1-On vérifie qu'aucun champ est remplis et non vide
-      if (!pseudo || !firstname || !lastname || !email || !password || !confirmation) {
+      if (!pseudo || !password || !confirmation) {  //  || !firstname || !lastname || !email ||
         res.render("index", {
           errorMessage: "Please fill all the fields before submitting"
         });
@@ -46,15 +46,15 @@ const userAuthController = {
       }
 
       //4 on vérifie que l'email est "valide grâce à email-validator"
-      if (!validator.validate(email)) {
+      /* if (!validator.validate(email)) {
         res.render("index", {
           errorMessage: "Please enter a valid email adress"
         });
         return;
-      }
+      } */
 
       //5 on vérifie que l'email n'est pas déjà pris 
-      const alreadyExistingEmail = await User.findOne({
+      /* const alreadyExistingEmail = await User.findOne({
         where: {
           email: email
         }
@@ -64,7 +64,7 @@ const userAuthController = {
           errorMessage: "This email is already taken"
         });
         return;
-      }
+      } */
 
       //6 on vérifie que le pseuo n'est pas déjà pris 
       const alreadyExistingPseudo = await User.findOne({
@@ -88,15 +88,12 @@ const userAuthController = {
       //2. Insertion dans la bdd
 
       await User.create({
-          pseudo: pseudo,
-          firstname: firstname,
-          lastname: lastname,
-          email: email,
+          pseudo: pseudo,          
           password: hashedPassword
         }),
         //console.log(req.body)
         res.render("index", {
-          errorMessage: "You are successfully registered. Please authenticate now."
+          succesMessage: "You are successfully registered. Please authenticate now."
         });
     } catch (error) {
       res.status(500).send('Une erreur est survenue');
@@ -110,12 +107,12 @@ const userAuthController = {
         password
       } = req.body;
 
-      if (!pseudo || !password) {
+      if (!password || !pseudo) {
         res.render("index", {
-          errorMessage: "Incorrect username "
+          errorMessage: "Incorrect username or password " 
         });
         return;
-      }
+      }   
 
       const user = await User.findOne({
         where: {
