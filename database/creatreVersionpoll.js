@@ -8,8 +8,6 @@ console.log('create table by sequelize');
 
 const { Versionpoll } = require('../src/models');
 
-
-
 async function createVersionpoll() {
   await Versionpoll.sync(); 
 }

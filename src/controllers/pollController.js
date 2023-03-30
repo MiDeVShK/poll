@@ -22,9 +22,17 @@ const pollController = {
         });
         return;
       }
-      if (choice_a.length || choice_b.length > 10) {
+
+      if (choice_a.length  > 16) {
         res.render("index", {
-          errorMessage: "Please enter a choice with max 10 characters"
+          errorMessage: "Please enter a choice with max 15 characters"
+        });
+        return;
+      }
+
+      if (choice_b.length  > 16) {
+        res.render("index", {
+          errorMessage: "Please enter a choice with max 15 characters"
         });
         return;
       }
