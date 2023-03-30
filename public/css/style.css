@@ -305,7 +305,9 @@ main {
     font-size: 1.8rem;
 }
 
-.footer-create-button {
+
+
+.create-button {
     font-size: 2rem;
     border: 2px solid black;
     border-top-left-radius: 255px 15px ;
@@ -319,7 +321,7 @@ main {
     transition: all .5s;
 }
 
-.footer-create-button:hover {
+.create-button:hover {
     border: 2px solid black;
     border-top-left-radius: 15px 255px ;
     border-top-right-radius: 240px 25px;
@@ -450,8 +452,14 @@ main {
 
 /* CREATE FORM */
 
+.header-create {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
 .create-container {
-    padding: .5rem;
+    padding: 2rem;
 }
 
 .create-input {
