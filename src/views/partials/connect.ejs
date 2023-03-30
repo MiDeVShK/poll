@@ -3,8 +3,12 @@
     <h1 class="form-title">Connect Form</h1>
     <form class="form-list-container" action="/login" method="POST">
         <ul class="form-list">
-            <li><input type="pseudo" name="pseudo" placeholder="Username"></li>
-            <li><input type="password" name="password" placeholder="Password"></li>
+            <li><input type="pseudo" name="pseudo" placeholder="Username" required ></li>
+            <li><input type="password" name="password" required placeholder="Password"></li>
+            <% if (locals.errorMessage) { %>                
+                <p style="color:red; font-size:30px;"> <%= errorMessage %></p>
+                <script>const error = true</script>
+            <% } %>
         </ul>
         <button class="connect-form-submit submit-button" type="submit">Connect</button>
     </form>

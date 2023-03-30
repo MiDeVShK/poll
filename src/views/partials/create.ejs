@@ -13,12 +13,12 @@
                 </select> 
                 <!-- <input class="create-input create-input-title" placeholder="Your Title" type="text" name="title" id="title-create" > -->
             </div>
-            <input class="create-input create-input-question" placeholder="Your Question" type="text" name="question" id="question-create" autofocus>
+            <input class="create-input create-input-question" placeholder="Your Question" type="text" name="question" id="question-create" required >
           
             <div class="poll-wrapper">
                 <div class="poll-progressbar-wrapper">
                     <div class="poll-progressbar" style="width: 100%" title="first_choice">
-                        <input class="create-input create-input-choice" placeholder="Your First Choice" type="text" name="choice_a" id="first-create">
+                        <input class="create-input create-input-choice" placeholder="Your First Choice" type="text" name="choice_a" id="first-create" required>
                     </div>
                 </div>
                 <span class="poll-progressbar-pourcent"><%=pourcentA%>%</span>
@@ -26,7 +26,7 @@
             <div class="poll-wrapper">      
                 <div class="poll-progressbar-wrapper">
                     <div class="poll-progressbar" style="width: 100%" title="second_choice" >
-                        <input class="create-input create-input-choice" placeholder="Your Second Choice" type="text" name="choice_b" id="second-create" value="">
+                        <input class="create-input create-input-choice" placeholder="Your Second Choice" type="text" name="choice_b" id="second-create" value="" required>
                     </div>
                 </div>
                 <span class="poll-progressbar-pourcent"><%=pourcentB%>%</span>
