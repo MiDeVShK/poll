@@ -1,6 +1,7 @@
 const User = require("./User");
 const Poll = require("./Poll");
 const Category = require("./Category");
+const Versionpoll = require("./Versionpoll");
 
 
 User.hasMany(Poll, {
@@ -24,4 +25,4 @@ Poll.belongsTo(Category, {
 });
 
 
-module.exports = { User, Poll, Category };
+module.exports = { User, Poll, Category, Versionpoll };

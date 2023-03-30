@@ -1,17 +1,10 @@
 const dotenv = require("dotenv");
 const path = require("path");
 
-<<<<<<< HEAD
 dotenv.config({
 path:path.resolve(__dirname,"../.env")
 });
-console.log(process.env.DB_PASSWORD);
-=======
-
-dotenv.config({
-  path:path.resolve(__dirname,"../.env")
-});
->>>>>>> refs/remotes/origin/main
+console.log('create table by sequelize');
 
 const { User, Poll, Category } = require('../src/models');
 

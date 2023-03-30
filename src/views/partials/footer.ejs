@@ -4,6 +4,7 @@
                 </div>
             </footer>
             <div class="created-by">
+                
                 <p>Created by</p>
                 <div class="author-poll">
                     <p>Hugo Laurent</p><a href="https://github.com/HugoLaurent"><img src="/images/github.png" alt=""></a>
@@ -14,7 +15,9 @@
                 <div class="author-poll">
                     <p>Mike</p><a href="https://github.com/Michaeldutheil"><img src="/images/github.png" alt=""></a>
                 </div>
+                <p>version: <%= version.name %></p>     
             </div>
+                  
             <% if (locals.user) { %>
                 <script src="/js/whenConnected.js"></script>
             <% } else { %>

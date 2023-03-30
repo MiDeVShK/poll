@@ -1,8 +1,10 @@
 const {
   Poll,
   User,
-  Category
+  Category,
+  Versionpoll
 } = require("../models");
+
 
 const loadToLocals = async (req, res, next) => {
   if (req.session) {
@@ -31,13 +33,13 @@ const loadToLocals = async (req, res, next) => {
           }
         ],
       });
-      res.locals.polls = polls;
+      res.locals.polls = polls;      
 
       const category = await Category.findAll({
         order: ["name"]
       });
       res.locals.categories = category;
-
+  
       const totalPoll = await Poll.count();
       res.locals.totalPoll = totalPoll;
 
@@ -45,10 +47,14 @@ const loadToLocals = async (req, res, next) => {
       const totalResultB = await Poll.sum("result_b");
       const totalVote = totalResultA + totalResultB;
       res.locals.totalVote = totalVote;
+
+      const version = await Versionpoll.findByPk(1); 
+      res.locals.version = version;
+      
+      
     } catch (error) {
       res.status(500).send('Une erreur est survenue');
-    }
-    
+    } 
 
   }
 

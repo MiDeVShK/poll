@@ -57,7 +57,7 @@
                 <option value="question">Modif question</option>
                 <option value="choice_a">Modif answer a</option>
                 <option value="choice_b">Modif answer b</option>                     
-                </select>
+            </select>
                 <ul class="form-list">
                     <li><input type="text" id="modif" name="modif" placeholder="modification"></li>
                 </ul>
@@ -71,6 +71,19 @@
         </div>
     </form>
 
+    <form class="admin-form-poll" action='/pollVersion' method='post'>
+        <label class="admin-selection-title">Choice which poll for modification version</label>
+            <ul class="form-list"></ul>
+                <li><input type="text" id="version" name="version" placeholder="version"></li>
+            </ul>
+        <div class="admin-form-validation"></div>
+            <button class="article-button" type="submit">Modification</button>
+                <h2 style="color: green;"><% if(locals.message4) { %>
+                    <p><%= message4 %></p>
+                <% } %>
+                </h2>
+        </div>
+    </form>    
 </section>
 
 

@@ -5,6 +5,7 @@
 
         <% for(const poll of polls) { %>
             <article class="poll-container">
+           
                 <form method="POST" action="/">
                     <% let pourcentA=Math.round((poll.result_a /(poll.result_a + poll.result_b)) * 100) %>
                         <% let pourcentB=Math.round((poll.result_b /(poll.result_a + poll.result_b)) * 100) %>
@@ -75,10 +76,11 @@
                                     <% } %>
                             </h2>
                 </form>
+        
+
             </article>
-
-
-            <% } %>
+                <% } %>
+              
                 <script>
                     console.log('Petit coquin de starship, je savais que tu passerais par là !');
                 </script>
