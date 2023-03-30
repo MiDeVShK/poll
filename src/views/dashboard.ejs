@@ -30,7 +30,7 @@
     </form>
 
     <form class="admin-form-poll" action='/pollDelete' method='post'>
-        <label class="admin-selection-title" for="selectUser">Choice poll</label>
+        <label class="admin-selection-title" for="selectUser">Choice poll for delete</label>
         <select name="selectPoll" id="selectPoll">
             <option value="">Select Poll</option>
             <% for(poll of locals.polls) {%>
@@ -41,6 +41,31 @@
             <button class="article-button" type="submit">Delete</button>
             <h2 style="color: green;"><% if(locals.message2) { %>
                 <p><%= message2 %></p>
+            <% } %>
+            </h2>
+        </div>
+    </form>
+    <form class="admin-form-poll" action='/pollModif' method='post'>
+        <label class="admin-selection-title" for="selectUser">Choice which poll for modification</label>
+        <select name="selectPoll" id="selectPoll">
+            <option value="">Select Poll</option>
+            <% for(poll of locals.polls) {%>
+                <option value="<%= poll.id %>"><%= poll.question %></option>
+            <% } %>        
+            </select>
+            <select name="selectModif" id="selectModif">
+                <option value="question">Modif question</option>
+                <option value="choice_a">Modif answer a</option>
+                <option value="choice_b">Modif answer b</option>                     
+                </select>
+                <ul class="form-list">
+                    <li><input type="text" id="modif" name="modif" placeholder="modification"></li>
+                </ul>
+
+        <div class="admin-form-validation">
+            <button class="article-button" type="submit">Modification</button>
+            <h2 style="color: green;"><% if(locals.message3) { %>
+                <p><%= message3 %></p>
             <% } %>
             </h2>
         </div>

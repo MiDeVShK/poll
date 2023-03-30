@@ -62,8 +62,40 @@ const adminController = {
     } catch (error) {
       res.status(500).send('Une erreur est survenue');
     }
-  }
-}
+  },
 
+
+   async modifPoll(req, res) {
+  try {
+ 
+    const id = req.body.selectPoll;
+    const value = req.body.modif
+    const modif = req.body.selectModif
+    
+    const users = await User.findAll({
+      attributes: ["pseudo", "id"]
+    })
+    
+    const updateObj = {};
+    updateObj[modif] = value;
+
+    const result = await Poll.update(
+      updateObj, 
+      {
+        where: {
+          id: id
+        }
+      }
+    ); 
+   res.render('dashboard', {
+      users,
+      message3: "Modification Poll sucess"
+    });
+  } catch (error) {
+    res.status(500).send('Une erreur est survenue');
+  }
+
+} 
+}
 
 module.exports = adminController;
