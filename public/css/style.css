@@ -71,7 +71,7 @@ header {
     border-top-right-radius: 15px 225px;
     border-bottom-left-radius: 225px 15px;
     border-bottom-right-radius: 15px 255px;
-  }
+  } ZWYf9DmGXcp9mP2x
 
 .header-navbar li:hover:not(:last-child) {
     font-weight: bolder;
@@ -742,7 +742,7 @@ main {
     }
 
     .navbar-button a {
-        font-size: 2rem;
+        font-size: 1rem;
     }
 
     .header-images-logo {
