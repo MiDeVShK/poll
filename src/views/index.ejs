@@ -1,7 +1,11 @@
 <%- include('./partials/header') %>
-    <h2 class="category-title">Most Popular</h2>
+    <div class="header-order-by">
+        <h2 class="category-title">Most Popular</h2>
+        <div class="footer-button-container">
+            <button class="footer-create-button">Create a poll</button>
+        </div>
+    </div>
     <main>
-
 
         <% for(const poll of polls) { %>
             <article class="poll-container">
