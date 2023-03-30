@@ -39,6 +39,7 @@ const mainController = {
 
       const choice = req.body.choice;
       const pollId = Number(req.body.id);
+      console.log(choice);
 
       if (!choice) {
         res.render('index', {

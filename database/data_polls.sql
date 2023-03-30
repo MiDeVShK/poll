@@ -29,3 +29,11 @@ CREATE TABLE IF NOT EXISTS "poll" (
   "created_at" timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
   "updated_at" timestamptz
 );
+
+
+CREATE TABLE IF NOT EXISTS "version" (
+  "id" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  "name" text NOT NULL,
+  "created_at" timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  "updated_at" timestamptz,
+  );
