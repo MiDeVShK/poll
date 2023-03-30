@@ -24,7 +24,7 @@
             <section class="poll-category-list style-scroll second-horizontal-scroll">
                 <%for (const category of categories) { %> 
                     <a href="/polls/<%= category.id %> "><%= category.name %></a>
-                     <% } %>
+                     <%} %>
             </section>
         </div>
 </div>
@@ -51,7 +51,7 @@
                             <% if (isNaN(pourcentA)) { %>
                                 <% pourcentA = 0 %>
                             <%}%>
-                            <%=pourcentA%>%
+                            <%=pourcentA%>
                         </span>
                     </div>
                     <div class="poll-wrapper">
@@ -62,10 +62,10 @@
                             </div>
                         </div>
                         <span class="poll-progressbar-pourcent">
-                            <% if (isNaN(pourcentB%)) { %>
-                                <% pourcentA = 0 %>
+                            <% if (isNaN(pourcentB)) { %>
+                                <% pourcentB = 0 %>
                             <%}%>
-                            <%=pourcentB%>%
+                            <%=pourcentB%>
                         </span>
                     </div>               
                 <div class="poll-footer">
