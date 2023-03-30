@@ -126,6 +126,12 @@ main {
     flex-wrap: wrap;
 }
 
+.header-order-by {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .category-title {
     margin: 0;
     font-size: 2rem;
@@ -208,8 +214,7 @@ main {
 .poll-progressbar {
     background-color: transparent;
     color: white;
-    padding-left: 1rem;
-    text-align: right;
+    padding-left: 1.5rem;
     font-size: 20px;
     border-bottom-right-radius: 15px;
     border-top-right-radius: 15px; 
@@ -446,7 +451,7 @@ main {
 /* CREATE FORM */
 
 .create-container {
-    padding: 3rem;
+    padding: .5rem;
 }
 
 .create-input {
@@ -826,7 +831,7 @@ main {
     }
 
     .create-input {
-        font-size: 2rem;
+        font-size: 1rem;
         margin-left: 1rem;
         text-align: left;
     }
@@ -852,6 +857,14 @@ main {
     .header-navbar {
         flex-direction: column;
         gap: .1rem;
+    }
+
+    .header-order-by {
+        flex-direction: column-reverse;
+    }
+
+    .category-title {
+        margin: 0;
     }
 
 }
