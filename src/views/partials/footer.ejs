@@ -17,12 +17,13 @@
                 </div>
                 <p>version: <%= version.name %></p>     
             </div>
-                  
+                
+        
             <% if (locals.user) { %>
                 <script src="/js/whenConnected.js?<%= Math.random().toString(36).substr(2, 9) %>"></script>
             <% } else { %>
                 <script src="/js/whenNotConnected.js?<%= Math.random().toString(36).substr(2, 9) %>"></script>
             <% } %>
-            <script src="/js/index.js"></script>
+            <script src="/js/index.js<%= Math.random().toString(36).substr(2, 9) %>"></script>
     </body>
 </html>

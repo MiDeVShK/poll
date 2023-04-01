@@ -163,3 +163,5 @@ const testScroll = document.addEventListener('scroll', (event) => {
 })
 
 
+console.log('Valorant c de la merde');
+
