@@ -43,8 +43,6 @@ app.use(express.urlencoded({ extended: true }));
 // routage !
 app.use(router);
 
-
-
 // Middleware de 404
 router.use(middleware404);
 
