@@ -27,6 +27,8 @@ app.set('view engine', 'ejs');
 app.set('views', 'src/views');
 
 
+
+
 app.use(authentifyRequestMiddleware);
 
 //Crée un guest
@@ -45,6 +47,28 @@ app.use(router);
 
 // Middleware de 404
 router.use(middleware404);
+
+// Gérer le cache du serveur dans l'interface utilisateur
+app.get('/public/js/whenConnected.js', function(req, res) {
+  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+  res.setHeader('Pragma', 'no-cache');
+  res.setHeader('Expires', '0');
+  res.sendFile(__dirname + '/public/js/whenConnected.js');
+});
+
+app.get('/public/js/whenNotConnected.js', function(req, res) {
+  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+  res.setHeader('Pragma', 'no-cache');
+  res.setHeader('Expires', '0');
+  res.sendFile(__dirname + '/public/js/whenConnected.js');
+});
+
+app.get('/js/index.js', function(req, res) {
+  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+  res.setHeader('Pragma', 'no-cache');
+  res.setHeader('Expires', '0');
+  res.sendFile(__dirname + '/public/js/index.js');
+});
 
 // on lance le serveur
 app.listen(PORT, () => {
