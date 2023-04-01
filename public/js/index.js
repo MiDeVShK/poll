@@ -162,4 +162,3 @@ const testScroll = document.addEventListener('scroll', (event) => {
   console.log(window.scrollY);
 })
 
-document.addEventListener('DOMContentLoaded', app.init);
