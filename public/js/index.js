@@ -163,4 +163,3 @@ const testScroll = document.addEventListener('scroll', (event) => {
 })
 
 
-Console.log('bonsoir à tous');
